@@ -1,4 +1,4 @@
-# Invoker class for REPL interactive interface
+# app/invoker.py
 
 from app.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
@@ -20,23 +20,26 @@ class Invoker:
 
     def execute_command(self, command_name: str):
         """Retrieve and execute a command from the CommandHandler by its name."""
-        # Lookup the command in the command handler
-        command = self.command_handler.commands.get(command_name, None)
+        # Retrieve the command from the CommandHandler's `commands` dictionary
+        command = self.command_handler.commands.get(command_name)
+        
         if command is None:
             print(f"Error: Command '{command_name}' not found.")
-            return
+            return None
+
+        # Execute the command if found
         self.history.append(command)
         return command.execute()
 
     def show_menu(self):
         """Display the available commands and their descriptions."""
-        print("\n**Available Commands**:")
+        print("\n📜 **Available Commands**:")
         for command, description in self.command_menu.items():
             print(f"  - `{command}`: {description}")
 
     def start_repl(self):
         """Interactive REPL loop for the calculator using CommandHandler."""
-        print("\nWelcome to the Interactive Calculator (CommandHandler Pattern)")
+        print("\nWelcome to the Interactive Calculator (CommandHandler Pattern) 💻")
         self.show_menu()  # Show the menu at the start
 
         while True:
@@ -68,19 +71,19 @@ class Invoker:
                 print("Invalid value. Please enter a numeric value.")
                 continue
 
-            # Dynamically register the command based on input
-            if command_name == "add":
-                command = AddCommand(calc, value)
-            elif command_name == "subtract":
-                command = SubtractCommand(calc, value)
-            elif command_name == "multiply":
-                command = MultiplyCommand(calc, value)
-            elif command_name == "divide":
-                command = DivideCommand(calc, value)
+            # registration of the command based input
+            if command_name in ["add", "subtract", "multiply", "divide"]:
+                # Get the registered command and update its value
+                command = self.command_handler.commands.get(command_name)
+                if command:
+                    command.value = value
+                else:
+                    print(f"Error: Command '{command_name}' is not registered.")
+                    continue
             else:
                 print("Unknown command. Type `menu` to see the available commands.")
                 continue
 
-            # Execute the command
-            result = self.execute_command(command)
+            # Execute the command using its name
+            result = self.execute_command(command_name)
             print(f"Result: {result}")
