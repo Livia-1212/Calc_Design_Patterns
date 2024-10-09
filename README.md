@@ -3,22 +3,22 @@
 ## Calculator includes function: add, subtract, multiply, divide
 
 ### Project Structure
-cal_design_patterns \
+cal_design_patterns 
 ##
-── app/ \
-__|    __init__.py           # Package-level initialization code \
-__│    calculator.py         # Core calculator logic (Receiver) \
-__│    commands.py           # Command classes (Add, Subtract, Multiply, Divide) \
-__│    invoker.py            # Invoker class to manage command execution and REPL interface \ 
+>app/ \
+>>    __init__.py           # Package-level initialization code \
+>>   calculator.py         # Core calculator logic (Receiver) \
+>>   commands.py           # Command classes (Add, Subtract, Multiply, Divide) \
+>>    invoker.py            # Invoker class to manage command execution and REPL interface  
 ##
-──tests/ \
-__|    __init__.py           # Indicates that 'tests' is a  package (optional) \
-__│    conftest.py           # Test fixtures shared across multiple test files \
-__│    test_calculator.py    # Unit tests for Calculator class \
-__│    test_commands.py      # Unit tests for Command classes \
-__│    test_invoker.py       # Unit tests for the Invoker and REPL interface \
-__ README.md                 # Project documentation \
-__  main.py                 # Entry point for the application 
+>tests/ \
+>>   __init__.py           # Indicates that 'tests' is a  package (optional) \
+>>    conftest.py           # Test fixtures shared across multiple test files \
+>>    test_calculator.py    # Unit tests for Calculator class \
+>>    test_commands.py      # Unit tests for Command classes \
+>>    test_invoker.py       # Unit tests for the Invoker and REPL interface \
+> README.md                 # Project documentation \
+>  main.py                 # Entry point for the application 
 
 ##
 ### Project Details
