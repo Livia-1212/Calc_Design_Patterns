@@ -4,6 +4,7 @@
 
 ### Project Structure
 cal_design_patterns \
+##
 ── app/ \
 __|    __init__.py           # Package-level initialization code \
 __│    calculator.py         # Core calculator logic (Receiver) \
@@ -19,7 +20,7 @@ __│    test_invoker.py       # Unit tests for the Invoker and REPL interface \
 __ README.md                 # Project documentation \
 __  main.py                 # Entry point for the application 
 
-
+##
 ### Project Details
 Language: Python
 Design Pattern Used: Command Pattern
