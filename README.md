@@ -8,6 +8,7 @@ cal_design_patterns
 >app/ 
 >>    __init__.py         &nbsp; &nbsp; Package-level initialization code \
 >>   calculator.py        &nbsp; &nbsp; Core calculator logic (Receiver) \
+>>   command_handler.py   &nbsp; &nbsp; CommandHandler class to manage command registration and execution \
 >>   commands.py          &nbsp; &nbsp; Command classes (Add, Subtract, Multiply, Divide) \
 >>    invoker.py          &nbsp; &nbsp; Invoker class to manage command execution and REPL interface  
 ##

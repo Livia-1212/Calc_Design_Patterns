@@ -10,7 +10,20 @@ class CommandHandler:
 
     def execute_command(self, command_name: str):
         """Execute a registered command by its name."""
-        if command_name in self.commands:
-            return self.commands[command_name].execute()
+        if command_name not in self.commands:
+            print(f"Error: Command '{command_name}' not found.")
+            return None
+        
+        command = self.commands[command_name]
+        
+        # Check if the command is a callable function or a command object
+        if callable(command):
+            # If the command is a function (like `lambda`), call it directly
+            return command()
+        elif hasattr(command, 'execute'):
+            # If the command is a command object, call its `execute()` method
+            return command.execute()
         else:
-            return f"Command '{command_name}' not found."
+            print(f"Error: Command '{command_name}' is not executable.")
+            return None
+
