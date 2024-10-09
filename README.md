@@ -23,7 +23,7 @@ cal_design_patterns
 
 ##
 ### Project Details
-Language: Python
-Design Pattern Used: Command Pattern
+Language: Python \
+Design Pattern Used: Command Pattern \
 Purpose: Demonstrate a modular, pattern-based design using a simple calculator.
 
