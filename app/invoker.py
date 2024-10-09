@@ -33,7 +33,7 @@ class Invoker:
 
     def show_menu(self):
         """Display the available commands and their descriptions."""
-        print("\n📜 **Available Commands**:")
+        print("\n**Available Commands**:")
         for command, description in self.command_menu.items():
             print(f"  - `{command}`: {description}")
 
