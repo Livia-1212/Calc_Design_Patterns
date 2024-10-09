@@ -1,6 +1,5 @@
-# tests/test_calculator.py
+# ensure Calculator class is working
 import pytest
-from app.calculator import Calculator
 
 def test_addition(calculator):
     assert calculator.add(10) == 10
@@ -17,4 +16,6 @@ def test_multiplication(calculator):
 def test_division(calculator):
     calculator.add(10)  # Set initial value to 10
     assert calculator.divide(2) == 5
+
+def test_divide_by_zero(calculator):
     assert calculator.divide(0) == "Error: Division by zero"

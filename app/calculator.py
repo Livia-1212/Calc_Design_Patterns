@@ -1,31 +1,26 @@
-from abc import ABC, abstractmethod
-
-# Command Interface
-class Command(ABC):
-    @abstractmethod
-    def execute(self):
-        pass
-
-# Calculator Class (Receiver)
+# Calculator for user to do basic operation add, subtract, multiply and divide
 class Calculator:
     def __init__(self):
         self.value = 0
 
-    def add(self, amount):
-        self.value += amount
+    def add(self, value):
+        self.value += value
         return self.value
 
-    def subtract(self, amount):
-        self.value -= amount
+    def subtract(self, value):
+        self.value -= value
         return self.value
 
-    def multiply(self, amount):
-        self.value *= amount
+    def multiply(self, value):
+        self.value *= value
         return self.value
 
-    def divide(self, amount):
-        if amount != 0:
-            self.value /= amount
-        else:
+    def divide(self, value):
+        if value == 0:
             return "Error: Division by zero"
+        self.value /= value
+        return self.value
+
+    def reset(self):
+        self.value = 0
         return self.value

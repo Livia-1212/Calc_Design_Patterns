@@ -1,8 +1,17 @@
-from app.calculator import Command
+# command classes to implement interface and execute operations on the Calculator
 
-# Concrete Command Classes
+from abc import ABC, abstractmethod
+from app.calculator import Calculator
+
+# Command Interface
+class Command(ABC):
+    @abstractmethod
+    def execute(self):
+        pass
+
+# Concrete Commands
 class AddCommand(Command):
-    def __init__(self, calculator, value):
+    def __init__(self, calculator: Calculator, value: float):
         self.calculator = calculator
         self.value = value
 
@@ -10,7 +19,7 @@ class AddCommand(Command):
         return self.calculator.add(self.value)
 
 class SubtractCommand(Command):
-    def __init__(self, calculator, value):
+    def __init__(self, calculator: Calculator, value: float):
         self.calculator = calculator
         self.value = value
 
@@ -18,7 +27,7 @@ class SubtractCommand(Command):
         return self.calculator.subtract(self.value)
 
 class MultiplyCommand(Command):
-    def __init__(self, calculator, value):
+    def __init__(self, calculator: Calculator, value: float):
         self.calculator = calculator
         self.value = value
 
@@ -26,7 +35,7 @@ class MultiplyCommand(Command):
         return self.calculator.multiply(self.value)
 
 class DivideCommand(Command):
-    def __init__(self, calculator, value):
+    def __init__(self, calculator: Calculator, value: float):
         self.calculator = calculator
         self.value = value
 
