@@ -13,7 +13,7 @@ def calculator():
 @pytest.fixture
 def command_handler(calculator):
     """Fixture to create a CommandHandler and register basic commands."""
-    handler = CommandHandler()
+    handler = CommandHandler(calculator)
     # Register the reset command
     handler.register_command("reset", (calculator.reset))
     return handler

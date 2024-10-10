@@ -7,3 +7,5 @@ venv
 .tests
 .tests___pycache__
 .app___pycache__
+.plugins___pycache__
+
