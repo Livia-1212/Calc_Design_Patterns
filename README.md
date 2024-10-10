@@ -12,6 +12,14 @@ cal_design_patterns
 >>   commands.py          &nbsp; &nbsp; Command classes (Add, Subtract, Multiply, Divide) \
 >>    invoker.py          &nbsp; &nbsp; Invoker class to manage command execution and REPL interface  
 ##
+>plugins/
+>> __init__.py            &nbsp; &nbsp;  Marks the 'plugins' directory as a package \
+>> arithmetic/              &nbsp; &nbsp; Subfolder for arithmetic commands
+>>> __init__.py          &nbsp; &nbsp; Contains AddCommand, SubtractCommand, MultiplyCommand, and DivideCommand
+>> reset/                 &nbsp; &nbsp; Subfolder for reset-related commands
+>>> __init__.py          &nbsp; &nbsp; Contains ResetCommand implementation
+
+## 
 >tests/ 
 >>   __init__.py           &nbsp; &nbsp; Indicates that 'tests' is a  package (optional) \
 >>    conftest.py          &nbsp; &nbsp; Test fixtures shared across multiple test files \
