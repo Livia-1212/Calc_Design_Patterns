@@ -10,14 +10,17 @@ cal_design_patterns
 >>   calculator.py        &nbsp; &nbsp; Core calculator logic (Receiver) \
 >>   command_handler.py   &nbsp; &nbsp; CommandHandler class to manage command registration and execution \
 >>   commands.py          &nbsp; &nbsp; Command classes (Add, Subtract, Multiply, Divide) \
->>    invoker.py          &nbsp; &nbsp; Invoker class to manage command execution and REPL interface  
+>>    invoker.py          &nbsp; &nbsp; Invoker class to manage command execution and REPL interface  \
+>>    plugin_loader.py    &nbsp; &nbsp; Dynamically loads all command plugins from the specified plugins package
 ##
 >plugins/
 >> __init__.py            &nbsp; &nbsp;  Marks the 'plugins' directory as a package \
->> arithmetic/              &nbsp; &nbsp; Subfolder for arithmetic commands
->>> __init__.py          &nbsp; &nbsp; Contains AddCommand, SubtractCommand, MultiplyCommand, and DivideCommand
->> reset/                 &nbsp; &nbsp; Subfolder for reset-related commands
->>> __init__.py          &nbsp; &nbsp; Contains ResetCommand implementation
+>> arithmetic/              &nbsp; &nbsp; Subfolder for arithmetic commands \
+>>> __init__.py          &nbsp; &nbsp; Contains AddCommand, SubtractCommand, MultiplyCommand, and DivideCommand \
+>> reset/                 &nbsp; &nbsp; Subfolder for reset-related commands \
+>>> __init__.py          &nbsp; &nbsp; Contains ResetCommand implementation \
+>> square/               &nbsp; &nbsp; Subfolder square commands \
+>>> __init__.py          &nbsp; &nbsp; Contains square
 
 ## 
 >tests/ 
