@@ -35,9 +35,16 @@ class MultiplyCommand(Command):
         return self.calculator.multiply(self.value)
 
 class DivideCommand(Command):
-    def __init__(self, calculator: Calculator, value: float):
+    """Command to divide the calculator value by a specified value."""
+
+    def __init__(self, calculator, value):
         self.calculator = calculator
         self.value = value
 
     def execute(self):
-        return self.calculator.divide(self.value)
+        """Execute the division command and handle division by zero."""
+        if self.value == 0:
+            print("Error: Division by zero")  # Print error message
+            return None  # Return None to indicate an error
+        self.calculator.value /= self.value
+        return self.calculator.value

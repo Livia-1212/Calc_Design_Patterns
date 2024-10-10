@@ -16,4 +16,4 @@ def test_divide_command(divide_command, calculator):
 
 def test_divide_by_zero(divide_command):
     divide_command.value = 0  # Change divide value to zero
-    assert divide_command.execute() == "Error: Division by zero"
+    assert divide_command.execute() is None
