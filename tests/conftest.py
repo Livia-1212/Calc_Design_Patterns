@@ -1,9 +1,11 @@
-# set up shared fixtures for Calculator, CommandHandler, and Invoker
+# tests/conftest.py
+
 import pytest
 from app.calculator import Calculator
-from app.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 from app.command_handler import CommandHandler
-from app.invoker import Invoker
+from app.multiprocess import Invoker
+from multiprocessing import Manager  # Import the Manager for shared state
+from app.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
 @pytest.fixture
 def calculator():
@@ -12,11 +14,17 @@ def calculator():
 
 @pytest.fixture
 def command_handler(calculator):
-    """Fixture to create a CommandHandler and register basic commands."""
-    handler = CommandHandler()
-    # Register the reset command
-    handler.register_command("reset", (calculator.reset))
+    """Fixture to create a CommandHandler linked to a Calculator instance."""
+    handler = CommandHandler(calculator)  # Pass the calculator to CommandHandler
     return handler
+
+@pytest.fixture
+def calculator_state():
+    """Fixture to create a shared calculator state using multiprocessing.Manager."""
+    with Manager() as manager:
+        state = manager.Namespace()
+        state.value = 0  # Initialize calculator value
+        yield state
 
 @pytest.fixture
 def invoker(command_handler):
